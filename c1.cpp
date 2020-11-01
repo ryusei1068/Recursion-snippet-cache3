@@ -18,10 +18,6 @@ namespace outer{
                         outer::cache[n] = (*this)(n-1) + (*this)(n-2);
                     }
                 }
-                cout << "[" ;
-                for (auto v : cache){cout << v << ",";}
-                cout << "]" << endl;
-                cout << endl;
                 return outer::cache[n];
             }
         } innerMemoizationFib;
