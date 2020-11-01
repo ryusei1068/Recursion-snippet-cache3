@@ -1,24 +1,25 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
 namespace outer{
+    //グローバル変数 -> cache 全てを0に設定
     vector<long int> cache;
     long int memoizationFib(int totalFibNumbers){
         for (int i = 0; i <= totalFibNumbers; i++){
-            cache.push_back(-1);
+            cache.push_back(0);
         }
         struct {
             long int operator()(int n){
-                if (cache[n] == -1){
+                if (cache[n] == 0){
                     if (n == 0){
-                        outer::cache[n] = 0;
+                        outer::cache[n] = 0; //グローバル変数cacheにアクセス
                     } else if (n == 1){
                         outer::cache[n] = 1;
                     }else {
                         outer::cache[n] = (*this)(n-1) + (*this)(n-2);
                     }
                 }
+                // フィボナッチはすでに計算されているのでただ返すだけで問題ありません。
                 return outer::cache[n];
             }
         } innerMemoizationFib;
