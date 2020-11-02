@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 namespace outer{
     vector<long int> cache;
     long int memoizationFib(int totalFibNumbers){
@@ -30,11 +31,11 @@ namespace outer{
 //     vector<long int> cache;
 //     long int memoizationFib(int totalFibNumbers){
 //         for (int i = 0; i <= totalFibNumbers; i++){
-//             cache.push_back(-1);
+//             cache.push_back(0);
 //         }
 //         struct innerFunction {
 //             static long int innerMemoizationFib(int n){
-//                 if (cache[n] == -1){
+//                 if (cache[n] == 0){
 //                     if (n == 0){
 //                         outer::cache[n] = 0;
 //                     } else if (n == 1){
